@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tableLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:fillViewport="true">
+ 
+   
+    <TableRow
+        android:id="@+id/tableRow_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip">
+ 
+        <TextView
+            android:id="@+id/textView_00"
+            android:onClick="onClick"
+            android:clickable="true" 
+            android:text="(0,0)"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginLeft="10dp"
+			android:layout_marginRight="5dp" />
+ 
+        <TextView
+            android:id="@+id/textView_01"
+            android:onClick="onClick"
+            android:clickable="true"
+            android:text="(0,1)"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginLeft="5dp"
+			android:layout_marginRight="5dp" />
+        
+        <TextView
+            android:id="@+id/textView_02"
+            android:onClick="onClick"
+            android:clickable="true"
+            android:text="(0,2)"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginLeft="5dp"
+			android:layout_marginRight="10dp" />
+  	</TableRow>
+  	
+    <TableRow
+        android:id="@+id/tableRow_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+ 
+        <TextView
+            android:id="@+id/textView_10"
+            android:text="(1,0)"
+            android:onClick="onClick"
+            android:clickable="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginLeft="10dp"
+			android:layout_marginRight="5dp"/>
+           
+ 
+        <TextView
+            android:id="@+id/textView_11"
+            android:onClick="onClick"
+            android:clickable="true"
+            android:text="(1,1)"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginLeft="5dp"
+			android:layout_marginRight="5dp"/>
+           
+        
+        <TextView
+            android:id="@+id/textView_12"
+            android:text="(1,2)"
+            android:onClick="onClick"
+            android:clickable="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginLeft="5dp"
+			android:layout_marginRight="10dp" />
+  	</TableRow>
+  	
+    <TableRow
+        android:id="@+id/tableRow_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+ 
+        <TextView
+            android:id="@+id/textView_20"
+            android:text="(2,0)"
+            android:onClick="onClick"
+            android:clickable="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginLeft="10dp"
+			android:layout_marginRight="5dp"/>
+           
+ 
+        <TextView
+            android:id="@+id/textView_21"
+            android:text="(2,1)"
+            android:onClick="onClick"
+            android:clickable="true"
+            android:textAppearance="?android:attr/textAppearanceLarge" 
+            android:layout_marginLeft="5dp"
+			android:layout_marginRight="5dp"/>
+        
+        <TextView
+            android:id="@+id/textView_22"
+            android:text="(2,2)"
+            android:onClick="onClick"
+            android:clickable="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginLeft="5dp"
+			android:layout_marginRight="10dp" />
+  	</TableRow>
+ 
+    
+ 
+</TableLayout>
