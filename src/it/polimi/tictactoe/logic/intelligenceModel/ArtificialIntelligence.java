@@ -1,5 +1,6 @@
 package it.polimi.tictactoe.logic.intelligenceModel;
 
+import it.polimi.tictactoe.exceptions.BestMoveFailException;
 import it.polimi.tictactoe.exceptions.IllegalCoordinatesException;
 import it.polimi.tictactoe.logic.common.Coordinates;
 import it.polimi.tictactoe.logic.common.SignEnum;
@@ -17,7 +18,7 @@ public class ArtificialIntelligence {
 		
 		List<StateNode> children = node.getChildren(maxPlayer);
 		
-		int value = Utilities.INFINITE;
+		/*int value = Utilities.INFINITE;
 		
 		for(StateNode n: children) {
 			n.setValue(alphaBeta(n, Utilities.DEPTH, -Utilities.INFINITE, Utilities.INFINITE, !maxPlayer));
@@ -26,18 +27,30 @@ public class ArtificialIntelligence {
 				value = n.getValue();
 			}
 			
-		}
-		
+		}*/
+		int value = this.bestValueForMinPlayer(children, !maxPlayer);
 		for(StateNode n: children) {
 			if(value == n.getValue()) {
 				return n;
 			}
 				
 		}
-		return null; 
+		throw new BestMoveFailException();
 		
+	}
+	
+	private int bestValueForMinPlayer(List<StateNode> nodes, boolean maxPlayer) {
 		
+		int value = Utilities.INFINITE;
 		
+		for (StateNode n: nodes) {
+			n.setValue(alphaBeta(n, Utilities.DEPTH, -Utilities.INFINITE, Utilities.INFINITE, maxPlayer));
+			
+			if(n.getValue() < value)
+				value = n.getValue();
+		}
+		
+		return value;
 		
 	}
 	
@@ -68,23 +81,7 @@ public class ArtificialIntelligence {
 		
 	}
 
-	/**/public void test() throws IllegalCoordinatesException {
-		Model m = new Model();
-		m.insert(SignEnum.X, new Coordinates(0, 1));
-		m.insert(SignEnum.O, new Coordinates(1, 1));
-		m.insert(SignEnum.X, new Coordinates(2, 0));
-		m.insert(SignEnum.O, new Coordinates(1, 0));
-		m.insert(SignEnum.X, new Coordinates(2, 1));
-		//m.insert(SignEnum.O, new Coordinates(2, 0));
-		//m.insert(SignEnum.X, new Coordinates(2, 2));
-		
-		//System.out.println(m.isOver(SignEnum.X));
-		StateNode n = new StateNode(m, Utilities.INFINITE, SignEnum.X);
-		System.out.println("[DEBUG] ab value: "+alphaBeta(n, Utilities.DEPTH, -Utilities.INFINITE, Utilities.INFINITE, true));
-		StateNode move = bestMove(n, false);
-		System.out.println("[DEBUG] sono il valore computato: "+move.getValue());
-		System.out.println(move.getCurrentState());
-	}
+	
 	
 	private int min(int x, int y) {
 		
@@ -96,39 +93,4 @@ public class ArtificialIntelligence {
 		return x >= y ? x : y;
 	}
 	
-	/*List<StateNode> childs = new ArrayList<StateNode>();
-		
-		childs = node.getChilds(maxPlayer);
-		StateNode nextNode = null;
-		
-		if(maxPlayer) {
-			
-			int value = -Utilities.INFINITE;
-			for(StateNode child: childs) {
-				int tmp = alphaBeta(child, Utilities.DEPTH, -Utilities.INFINITE, Utilities.INFINITE, maxPlayer);
-				//System.out.println("[DEBUG] sono tmp: "+tmp);
-				if(tmp > value) {
-					value = tmp;
-					nextNode = child;
-					
-				}
-			}
-			
-		} else {
-			
-			int value = Utilities.INFINITE;
-			for(StateNode child: childs) {
-				int tmp = alphaBeta(child, Utilities.DEPTH, -Utilities.INFINITE, Utilities.INFINITE, maxPlayer);
-				//System.out.println("[DEBUG] sono tmp: "+tmp);
-				if(tmp < value) {
-					value = tmp;
-					nextNode = child;
-					
-				}
-			}
-			
-		}
-			
-		
-		return nextNode;*/
 }
